@@ -1,16 +1,20 @@
 <div class="wrapper">
-  <div (click)="flip()" class="flashcard-container">
-    <div class="flashcard">
-      {{currentWord}}
+  <div class="flashcard-setup">
+    <button type="button" (click)="prev()" class="btn btn-primary prev">&lt;</button>
+    <div (click)="flip()" class="flashcard-container">
+      <div class="flashcard">
+        {{currentFlashcard}}
+      </div>
+      <div class="flashcard-hiragana">
+        {{currentFlashcardHiragana}}
+      </div>
     </div>
-    <div class="flashcard-hiragana">
-      {{currentWordHiragana}}
-    </div>
+    <button type="button" (click)="next()" class="btn btn-primary next">&gt;</button>
   </div>
   <div class="navigation">
+    <button type="button" (click)="prev()" class="btn btn-danger prev">w</button>
+    <button type="button" (click)="next()" class="btn btn-success next">r</button>
     <button type="button" [ngClass]="shuffleBtnClass" (click)="shuffle()" class="btn">r</button>
-    <button type="button" (click)="prev()" class="btn btn-primary prev">&lt;</button>
-    <button type="button" (click)="next()" class="btn btn-primary next">&gt;</button>
   </div>
   <div class="counter">{{counter}}</div>
 </div>

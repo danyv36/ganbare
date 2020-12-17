@@ -1,5 +1,5 @@
 import { Component, OnInit, HostListener } from '@angular/core';
-import { vocab } from '../vocab/vocabulary';
+import { vocab } from '../flashcard-files/vocabulary';
 import * as _ from 'lodash';
 
 @Component({
@@ -10,28 +10,31 @@ import * as _ from 'lodash';
 export class FlashcardComponent implements OnInit {
   constructor() { }
 
-  currentVocab;
-  currentWordIndex = 0;
+  currentFlashcardSet;
+  currentFlashcardIndex = 0;
   showingJapaneseSide = true;
   cardsShuffled = false;
+  correctFlashcards;
+  wrongFlashcards;
 
   ngOnInit() {
-    this.currentVocab = _.shuffle(vocab);
+    this.currentFlashcardSet = vocab;
+    console.log('currentflashcardset::', this.currentFlashcardSet);
   }
 
   get counter() {
-    return `${this.currentWordIndex + 1}/${this.currentVocab.length}`
+    return `${this.currentFlashcardIndex + 1}/${this.currentFlashcardSet.length}`
   }
 
-  get currentWord() {
-    return this.showingJapaneseSide ? this.currentVocab[this.currentWordIndex].Japanese : this.currentVocab[this.currentWordIndex].English;
+  get currentFlashcard() {
+    return this.showingJapaneseSide ? this.currentFlashcardSet[this.currentFlashcardIndex].Japanese : this.currentFlashcardSet[this.currentFlashcardIndex].English;
   }
 
-  get currentWordHiragana() {
+  get currentFlashcardHiragana() {
     if (!this.showingJapaneseSide) {
       return '';
     }
-    return this.currentVocab[this.currentWordIndex].Hiragana;
+    return this.currentFlashcardSet[this.currentFlashcardIndex].Hiragana;
   }
 
   get shuffleBtnClass() {
@@ -39,18 +42,18 @@ export class FlashcardComponent implements OnInit {
   }
 
   prev() {
-    if (this.currentWordIndex !== 0) {
-      this.currentWordIndex--;
+    if (this.currentFlashcardIndex !== 0) {
+      this.currentFlashcardIndex--;
     } else {
-      this.currentWordIndex = this.currentVocab.length - 1;
+      this.currentFlashcardIndex = this.currentFlashcardSet.length - 1;
     }
   }
 
   next() {
-    if (this.currentWordIndex < this.currentVocab.length - 1) {
-      this.currentWordIndex++;
+    if (this.currentFlashcardIndex < this.currentFlashcardSet.length - 1) {
+      this.currentFlashcardIndex++;
     } else {
-      this.currentWordIndex = 0;
+      this.currentFlashcardIndex = 0;
     }
   }
 
@@ -60,8 +63,8 @@ export class FlashcardComponent implements OnInit {
 
   shuffle() {
     this.cardsShuffled = !this.cardsShuffled;
-    this.currentVocab = this.cardsShuffled ? _.shuffle(vocab) : vocab;
-    this.currentWordIndex = 0;
+    this.currentFlashcardSet = this.cardsShuffled ? _.shuffle(vocab) : vocab;
+    this.currentFlashcardIndex = 0;
   }
 
   @HostListener('document:keyup', ['$event'])

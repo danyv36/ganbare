@@ -1,7 +1,13 @@
 .wrapper {
-  width: 50%;
-  margin: 0 auto;
   text-align: center;
+}
+
+.flashcard-setup {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-basis: auto;
+    justify-content: center;
 }
 
 .flashcard-container {
@@ -10,6 +16,7 @@
   cursor: pointer;
   font-size: 36px;
   height: 360px;
+  width: 400px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -37,11 +44,23 @@
 }
 
 .btn-off {
-    color: #18292e;
-    background-color: #c2cacc;
+  color: #18292e;
+  background-color: #c2cacc;
+
+  &:hover {
+    background-color: #979d9e;
+  }
+}
+
+.prev {
+    margin-right: 20px;
+}
+
+.next {
+    margin-left: 20px;
 }
 
 .btn {
-    min-width: 80px;
-    margin-right: 20px;
+  min-width: 80px;
+  margin-right: 20px;
 }

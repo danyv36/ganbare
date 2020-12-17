@@ -4,11 +4,15 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FlashcardComponent } from './flashcard/flashcard.component';
+import { NavComponent } from './nav/nav.component';
+import { ConfigComponent } from './config/config.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    FlashcardComponent
+    FlashcardComponent,
+    NavComponent,
+    ConfigComponent
   ],
   imports: [
     BrowserModule,
