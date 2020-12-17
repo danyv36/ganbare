@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 import { vocab } from '../vocab/vocabulary';
 import * as _ from 'lodash';
 
@@ -10,40 +10,75 @@ import * as _ from 'lodash';
 export class FlashcardComponent implements OnInit {
   constructor() { }
 
-  shuffledVocab;
+  currentVocab;
   currentWordIndex = 0;
   showingJapaneseSide = true;
+  cardsShuffled = false;
 
   ngOnInit() {
-    this.shuffledVocab = _.shuffle(vocab);
+    this.currentVocab = _.shuffle(vocab);
+  }
+
+  get counter() {
+    return `${this.currentWordIndex + 1}/${this.currentVocab.length}`
+  }
+
+  get currentWord() {
+    return this.showingJapaneseSide ? this.currentVocab[this.currentWordIndex].Japanese : this.currentVocab[this.currentWordIndex].English;
+  }
+
+  get currentWordHiragana() {
+    if (!this.showingJapaneseSide) {
+      return '';
+    }
+    return this.currentVocab[this.currentWordIndex].Hiragana;
+  }
+
+  get shuffleBtnClass() {
+    return this.cardsShuffled ? 'btn-primary' : 'btn-off';
   }
 
   prev() {
     if (this.currentWordIndex !== 0) {
       this.currentWordIndex--;
+    } else {
+      this.currentWordIndex = this.currentVocab.length - 1;
     }
   }
 
   next() {
-    if (this.currentWordIndex < this.shuffledVocab.length) {
+    if (this.currentWordIndex < this.currentVocab.length - 1) {
       this.currentWordIndex++;
+    } else {
+      this.currentWordIndex = 0;
     }
-  }
-
-  get counter() {
-    return `${this.currentWordIndex + 1}/${this.shuffledVocab.length}`
-  }
-
-  get currentWord() {
-    return this.showingJapaneseSide ? this.shuffledVocab[this.currentWordIndex].Japanese : this.shuffledVocab[this.currentWordIndex].English;
-  }
-
-  get currentWordHiragana() {
-    return this.shuffledVocab[this.currentWordIndex].Hiragana;
   }
 
   flip() {
     this.showingJapaneseSide = !this.showingJapaneseSide;
+  }
+
+  shuffle() {
+    this.cardsShuffled = !this.cardsShuffled;
+    this.currentVocab = this.cardsShuffled ? _.shuffle(vocab) : vocab;
+    this.currentWordIndex = 0;
+  }
+
+  @HostListener('document:keyup', ['$event'])
+  handleKeyboardEvent(event: KeyboardEvent) {
+    switch (event.key) {
+      case 'ArrowRight':
+        this.next();
+        break;
+      case 'ArrowLeft':
+        this.prev();
+        break;
+      case 'ArrowUp':
+      case 'ArrowDown':
+        this.flip();
+        break;
+      default:
+    }
   }
 
 }

@@ -1,6 +1,7 @@
 .wrapper {
-    width: 50%;
-    margin: 0 auto;
+  width: 50%;
+  margin: 0 auto;
+  text-align: center;
 }
 
 .flashcard-container {
@@ -8,7 +9,11 @@
   border-radius: 5px;
   cursor: pointer;
   font-size: 36px;
-  padding: 100px;
+  height: 360px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 
 .flashcard {
@@ -16,19 +21,27 @@
 }
 
 .flashcard-hiragana {
-    font-size: 18px;
-    text-align: center;
+  font-size: 18px;
+  text-align: center;
 }
 
 .navigation {
-    margin-top: 20px;
-    text-align: center;
-}
-
-.prev {
-    margin-right: 20px;
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .counter {
-    margin-top: 10px;
+  margin-top: 10px;
+}
+
+.btn-off {
+    color: #18292e;
+    background-color: #c2cacc;
+}
+
+.btn {
+    min-width: 80px;
+    margin-right: 20px;
 }
