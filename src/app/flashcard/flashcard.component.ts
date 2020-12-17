@@ -55,6 +55,7 @@ export class FlashcardComponent implements OnInit {
     } else {
       this.currentFlashcardIndex = 0;
     }
+    this.showingJapaneseSide = true;
   }
 
   flip() {
