@@ -1,0 +1,29 @@
+.wrapper {
+    width: 50%;
+    margin: 0 auto;
+}
+
+.flashcard-container {
+  border: 1px solid #5e76a8;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 36px;
+}
+
+.flashcard {
+  text-align: center;
+  padding: 100px;
+}
+
+.navigation {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.prev {
+    margin-right: 20px;
+}
+
+.counter {
+    margin-top: 10px;
+}
