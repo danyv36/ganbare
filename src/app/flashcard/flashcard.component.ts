@@ -27,7 +27,6 @@ export class FlashcardComponent implements OnInit {
   next() {
     if (this.currentWordIndex < this.shuffledVocab.length) {
       this.currentWordIndex++;
-      console.log('next!!', this.currentWordIndex);
     }
   }
 
@@ -35,8 +34,12 @@ export class FlashcardComponent implements OnInit {
     return `${this.currentWordIndex + 1}/${this.shuffledVocab.length}`
   }
 
-  get currentWord(){
+  get currentWord() {
     return this.showingJapaneseSide ? this.shuffledVocab[this.currentWordIndex].Japanese : this.shuffledVocab[this.currentWordIndex].English;
+  }
+
+  get currentWordHiragana() {
+    return this.shuffledVocab[this.currentWordIndex].Hiragana;
   }
 
   flip() {

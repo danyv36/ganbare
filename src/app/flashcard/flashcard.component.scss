@@ -8,11 +8,16 @@
   border-radius: 5px;
   cursor: pointer;
   font-size: 36px;
+  padding: 100px;
 }
 
 .flashcard {
   text-align: center;
-  padding: 100px;
+}
+
+.flashcard-hiragana {
+    font-size: 18px;
+    text-align: center;
 }
 
 .navigation {
