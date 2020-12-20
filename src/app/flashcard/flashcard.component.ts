@@ -14,11 +14,16 @@ export class FlashcardComponent implements OnInit {
   currentFlashcardIndex = 0;
   showingJapaneseSide = true;
   cardsShuffled = false;
-  correctFlashcards;
-  wrongFlashcards;
+  correctFlashcards = [];
+  wrongFlashcards = [];
+
+  inputStart = 1; // inputs for what index to start the flashcards
+  inputEnd: number; // inputs for what number to end the flashcards
 
   ngOnInit() {
     this.currentFlashcardSet = vocab;
+    this.inputStart = 1;
+    this.inputEnd = this.currentFlashcardSet.length;
     console.log('currentflashcardset::', this.currentFlashcardSet);
   }
 
@@ -41,6 +46,10 @@ export class FlashcardComponent implements OnInit {
     return this.cardsShuffled ? 'btn-primary' : 'btn-off';
   }
 
+  updateStartIndex() {
+    this.currentFlashcardIndex = this.inputStart - 1;
+  }
+
   prev() {
     if (this.currentFlashcardIndex !== 0) {
       this.currentFlashcardIndex--;
@@ -50,10 +59,11 @@ export class FlashcardComponent implements OnInit {
   }
 
   next() {
-    if (this.currentFlashcardIndex < this.currentFlashcardSet.length - 1) {
-      this.currentFlashcardIndex++;
+    if (this.currentFlashcardIndex < this.inputEnd - 1) {
+      this.inputStart = (++this.currentFlashcardIndex) + 1;
     } else {
       this.currentFlashcardIndex = 0;
+      this.inputStart = 1;
     }
     this.showingJapaneseSide = true;
   }
@@ -68,6 +78,19 @@ export class FlashcardComponent implements OnInit {
     this.currentFlashcardIndex = 0;
   }
 
+  correct() {
+    this.correctFlashcards.push(this.currentFlashcardSet[this.currentFlashcardIndex]);
+  }
+
+  wrong() {
+    this.wrongFlashcards.push(this.currentFlashcardSet[this.currentFlashcardIndex]);
+  }
+
+  reset() {
+    this.correctFlashcards = [];
+    this.wrongFlashcards = [];
+  }
+
   @HostListener('document:keyup', ['$event'])
   handleKeyboardEvent(event: KeyboardEvent) {
     switch (event.key) {
@@ -80,6 +103,12 @@ export class FlashcardComponent implements OnInit {
       case 'ArrowUp':
       case 'ArrowDown':
         this.flip();
+        break;
+      case 'r':
+        this.correct();
+        break;
+      case 'w':
+        this.wrong();
         break;
       default:
     }

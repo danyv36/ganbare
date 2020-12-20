@@ -12,9 +12,13 @@
     <button type="button" (click)="next()" class="btn btn-primary next">&gt;</button>
   </div>
   <div class="navigation">
-    <button type="button" (click)="prev()" class="btn btn-danger prev">w</button>
-    <button type="button" (click)="next()" class="btn btn-success next">r</button>
+    <button type="button" (click)="wrong()" class="btn btn-danger prev">w</button>
+    <button type="button" (click)="correct()" class="btn btn-success next">r</button>
     <button type="button" [ngClass]="shuffleBtnClass" (click)="shuffle()" class="btn">r</button>
+  </div>
+  <div class="counter">
+    <input type="text" class="counter-form" name="input-start" [(ngModel)]="inputStart" (change)="updateStartIndex()"> /
+    <input type="text" class="counter-form" name="input-end" [(ngModel)]="inputEnd">
   </div>
   <div class="counter">{{counter}}</div>
 </div>
