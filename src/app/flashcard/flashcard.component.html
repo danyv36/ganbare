@@ -15,7 +15,8 @@
       <fa-icon [icon]="faChevronRight" size="lg"></fa-icon>
     </button>
   </div>
-  <div class="navigation">
+  <div class="counter">{{ counter }}</div>
+  <div class="quiz-buttons">
     <div class="track-counter">
       <button
         type="button"
@@ -40,13 +41,14 @@
       </button>
     </div>
   </div>
-  <div class="counter">
+  <div class="card-range">
+    <span> Study cards: </span>
     <input
       type="text"
       class="counter-form"
       name="input-start"
       [(ngModel)]="inputStart"
-      (change)="updateStartIndex()"
+      (change)="updateCards()"
     />
     /
     <input
@@ -54,7 +56,9 @@
       class="counter-form"
       name="input-end"
       [(ngModel)]="inputEnd"
+      (change)="updateCards()"
     />
+    <span> of {{ state.originalFlashcardSet.length }} </span>
     <button
       type="button"
       [ngClass]="shuffleBtnClass"
@@ -64,6 +68,5 @@
       <fa-icon [icon]="faRandom" size="lg"></fa-icon>
     </button>
   </div>
-  <div class="counter">{{ counter }}</div>
   <app-quiz-results></app-quiz-results>
 </div>

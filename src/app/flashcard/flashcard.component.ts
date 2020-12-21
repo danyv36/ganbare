@@ -33,6 +33,7 @@ export class FlashcardComponent implements OnInit {
   inputEnd: number; // inputs for what number to end the flashcards
 
   ngOnInit() {
+    this.state.quizStarted = false;
     this.state.currentFlashcardSet = vocab;
     this.inputStart = 1;
     this.inputEnd = this.state.currentFlashcardSet.length;
@@ -73,13 +74,23 @@ export class FlashcardComponent implements OnInit {
     return this.state.quizStarted ? 'stop quiz' : 'start quiz';
   }
 
-  updateStartIndex() {
-    this.state.currentFlashcardIndex = this.inputStart - 1;
+  updateCards() {
+    if (
+      _.toNumber(this.inputStart) !== 0 ||
+      _.toNumber(this.inputEnd) !== this.state.originalFlashcardSet.length
+    ) {
+      const slicedCards = this.state.originalFlashcardSet.slice(
+        this.inputStart - 1,
+        this.inputEnd
+      );
+      this.state.currentFlashcardSet = slicedCards;
+      this.state.currentFlashcardIndex = 0;
+    }
   }
 
   prev() {
     if (this.state.currentFlashcardIndex !== 0) {
-      this.inputStart = --this.state.currentFlashcardIndex + 1;
+      this.state.currentFlashcardIndex--;
     } else {
       this.state.currentFlashcardIndex =
         this.state.currentFlashcardSet.length - 1;
@@ -87,11 +98,16 @@ export class FlashcardComponent implements OnInit {
   }
 
   next() {
-    if (this.state.currentFlashcardIndex < this.inputEnd - 1) {
-      this.inputStart = ++this.state.currentFlashcardIndex + 1;
+    if (
+      this.state.currentFlashcardIndex <
+      this.state.currentFlashcardSet.length - 1
+    ) {
+      this.state.currentFlashcardIndex++;
     } else {
+      if (this.state.quizStarted) {
+        this.state.quizStarted = false;
+      }
       this.state.currentFlashcardIndex = 0;
-      this.inputStart = 1;
     }
     this.state.showingJapaneseSide = true;
   }
@@ -102,10 +118,17 @@ export class FlashcardComponent implements OnInit {
 
   shuffle() {
     this.state.cardsShuffled = !this.state.cardsShuffled;
+    console.log('inputs', this.inputStart, this.inputEnd);
+    const cardChunk = this.state.originalFlashcardSet.slice(
+      this.inputStart - 1,
+      this.inputEnd
+    );
+    console.log('will shuffle this set: ', cardChunk);
     this.state.currentFlashcardSet = this.state.cardsShuffled
-      ? _.shuffle(vocab)
-      : vocab;
+      ? _.shuffle(cardChunk)
+      : cardChunk;
     this.state.currentFlashcardIndex = 0;
+    console.log('shuffled...', this.state.currentFlashcardIndex);
   }
 
   correct() {

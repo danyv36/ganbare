@@ -1,7 +1,7 @@
 [x] Choose where to start/end
 [x] Keep track of right/wrong answers
 [x] Save the wrong answers in a file and keep track of the cards you get most wrong
-[ ] Show right/wrong answers once you reach the end
+[x] Show right/wrong answers once you reach the end
 [ ] Review wrong answers only
 [ ] Load kanji file
 [ ] Add the ability to remove from stack words that you already know

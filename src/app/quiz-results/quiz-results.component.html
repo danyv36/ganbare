@@ -1,1 +1,27 @@
-<p>quiz-results works!</p>
+<div
+  class="container"
+  *ngIf="!state.quizStarted && state.resultQuiz.length > 0"
+>
+  <h3>Results</h3>
+  <ng-container *ngFor="let result of state.resultQuiz">
+    <div class="row">
+      <div
+        class="left-card result-card col-sm"
+        [ngClass]="getCardClass(result)"
+      >
+        <div class="front-card">
+          {{ result.Japanese }}
+        </div>
+        <div class="hint-card">
+          {{ result.Hiragana }}
+        </div>
+      </div>
+      <div
+        class="right-card result-card col-sm"
+        [ngClass]="getCardClass(result)"
+      >
+        {{ result.English }}
+      </div>
+    </div>
+  </ng-container>
+</div>

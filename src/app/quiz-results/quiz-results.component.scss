@@ -1,0 +1,22 @@
+.result-card {
+  border: 1px solid #5e76a8;
+  border-radius: 5px;
+  height: 100px;
+  font-size: 24px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hint-card {
+  font-size: 16px;
+}
+
+.result-correct {
+  background-color: #8ac585;
+}
+
+.result-wrong {
+  background-color: #c58585;
+}

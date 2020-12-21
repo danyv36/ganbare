@@ -6,3 +6,7 @@ export interface IFlashcardVocab {
   Sentence?: string;
   Tags?: string;
 }
+
+export interface IQuizResult extends IFlashcardVocab {
+  Correct: boolean;
+}
