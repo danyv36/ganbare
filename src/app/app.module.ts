@@ -8,6 +8,8 @@ import { NavComponent } from './nav/nav.component';
 import { ConfigComponent } from './config/config.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { FlashcardState } from './flashcard/flashcard.state';
+import { HttpClientModule } from '@angular/common/http';
+import { QuizResultsComponent } from './quiz-results/quiz-results.component';
 
 @NgModule({
   declarations: [
@@ -15,8 +17,15 @@ import { FlashcardState } from './flashcard/flashcard.state';
     FlashcardComponent,
     NavComponent,
     ConfigComponent,
+    QuizResultsComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, FormsModule, FontAwesomeModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    FormsModule,
+    FontAwesomeModule,
+    HttpClientModule,
+  ],
   providers: [FlashcardState],
   bootstrap: [AppComponent],
 })

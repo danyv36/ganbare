@@ -7,8 +7,7 @@ export class FlashcardState {
   currentFlashcardIndex = 0;
   showingJapaneseSide = true;
   cardsShuffled = false;
-  correctFlashcards = [];
-  wrongFlashcards = [];
+  resultQuiz = [];
 
   quizStarted = false;
 }

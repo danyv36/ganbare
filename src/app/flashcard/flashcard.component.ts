@@ -9,6 +9,7 @@ import {
   faRandom,
 } from '@fortawesome/free-solid-svg-icons';
 import { FlashcardState } from './flashcard.state';
+import { FlashcardService, ICounterReq } from './flashcard.service';
 
 @Component({
   selector: 'app-flashcard',
@@ -16,7 +17,10 @@ import { FlashcardState } from './flashcard.state';
   styleUrls: ['./flashcard.component.scss'],
 })
 export class FlashcardComponent implements OnInit {
-  constructor(private state: FlashcardState) {}
+  constructor(
+    private state: FlashcardState,
+    private service: FlashcardService
+  ) {}
 
   /* Icons */
   faChevronRight = faChevronRight;
@@ -75,7 +79,7 @@ export class FlashcardComponent implements OnInit {
 
   prev() {
     if (this.state.currentFlashcardIndex !== 0) {
-      this.state.currentFlashcardIndex--;
+      this.inputStart = --this.state.currentFlashcardIndex + 1;
     } else {
       this.state.currentFlashcardIndex =
         this.state.currentFlashcardSet.length - 1;
@@ -105,26 +109,36 @@ export class FlashcardComponent implements OnInit {
   }
 
   correct() {
-    this.state.correctFlashcards.push(
-      this.state.currentFlashcardSet[this.state.currentFlashcardIndex].Id
-    );
+    this.state.resultQuiz.push({
+      ...this.state.currentFlashcardSet[this.state.currentFlashcardIndex],
+      Correct: true,
+    });
     this.next();
   }
 
   wrong() {
-    this.state.wrongFlashcards.push(
-      this.state.currentFlashcardSet[this.state.currentFlashcardIndex].Id
-    );
+    this.state.resultQuiz.push({
+      ...this.state.currentFlashcardSet[this.state.currentFlashcardIndex],
+      Correct: false,
+    });
     this.next();
   }
 
   startQuiz() {
-    this.state.quizStarted = true;
+    if (this.state.quizStarted) {
+      // quiz ended, record results
+      const req: ICounterReq = {
+        results: this.state.resultQuiz,
+      };
+      this.service.postVocab(req).subscribe((s) => {
+        console.log('response::', s);
+      });
+    }
+    this.state.quizStarted = !this.state.quizStarted;
   }
 
   reset() {
-    this.state.correctFlashcards = [];
-    this.state.wrongFlashcards = [];
+    this.state.resultQuiz = [];
   }
 
   @HostListener('document:keyup', ['$event'])
