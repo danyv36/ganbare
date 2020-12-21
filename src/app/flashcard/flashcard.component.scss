@@ -3,11 +3,11 @@
 }
 
 .flashcard-setup {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    flex-basis: auto;
-    justify-content: center;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex-basis: auto;
+  justify-content: center;
 }
 
 .flashcard-container {
@@ -53,19 +53,31 @@
 }
 
 .prev {
-    margin-right: 20px;
+  margin-right: 20px;
 }
 
 .next {
-    margin-left: 20px;
+  margin-left: 20px;
 }
 
 .btn {
-  min-width: 80px;
+  min-width: 40px;
   margin-right: 20px;
+}
+
+.navigation button {
+  min-width: 50px;
+}
+
+.options button {
+  min-width: 100px;
 }
 
 .counter-form {
   width: 40px;
   text-align: center;
+}
+
+fa-icon {
+  color: white;
 }

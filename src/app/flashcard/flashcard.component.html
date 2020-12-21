@@ -1,24 +1,54 @@
 <div class="wrapper">
   <div class="flashcard-setup">
-    <button type="button" (click)="prev()" class="btn btn-primary prev">&lt;</button>
+    <button type="button" (click)="prev()" class="btn btn-primary prev">
+      <fa-icon [icon]="faChevronLeft" size="lg"></fa-icon>
+    </button>
     <div (click)="flip()" class="flashcard-container">
       <div class="flashcard">
-        {{currentFlashcard}}
+        {{ currentFlashcard }}
       </div>
       <div class="flashcard-hiragana">
-        {{currentFlashcardHiragana}}
+        {{ currentFlashcardHiragana }}
       </div>
     </div>
-    <button type="button" (click)="next()" class="btn btn-primary next">&gt;</button>
+    <button type="button" (click)="next()" class="btn btn-primary next">
+      <fa-icon [icon]="faChevronRight" size="lg"></fa-icon>
+    </button>
   </div>
   <div class="navigation">
-    <button type="button" (click)="wrong()" class="btn btn-danger prev">w</button>
-    <button type="button" (click)="correct()" class="btn btn-success next">r</button>
-    <button type="button" [ngClass]="shuffleBtnClass" (click)="shuffle()" class="btn">r</button>
+    <button type="button" (click)="correct()" class="btn btn-success next">
+      <fa-icon [icon]="faCheck" size="lg"></fa-icon>
+    </button>
+    <button type="button" (click)="wrong()" class="btn btn-danger prev">
+      <fa-icon [icon]="faTimes" size="lg"></fa-icon>
+    </button>
+    <div class="options">
+      <button
+        type="button"
+        [ngClass]="shuffleBtnClass"
+        (click)="shuffle()"
+        class="btn btn-primary"
+      >
+        shuffle
+      </button>
+      <button type="button" class="btn btn-primary">start studying</button>
+    </div>
   </div>
   <div class="counter">
-    <input type="text" class="counter-form" name="input-start" [(ngModel)]="inputStart" (change)="updateStartIndex()"> /
-    <input type="text" class="counter-form" name="input-end" [(ngModel)]="inputEnd">
+    <input
+      type="text"
+      class="counter-form"
+      name="input-start"
+      [(ngModel)]="inputStart"
+      (change)="updateStartIndex()"
+    />
+    /
+    <input
+      type="text"
+      class="counter-form"
+      name="input-end"
+      [(ngModel)]="inputEnd"
+    />
   </div>
-  <div class="counter">{{counter}}</div>
+  <div class="counter">{{ counter }}</div>
 </div>

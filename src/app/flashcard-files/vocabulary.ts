@@ -5,7 +5,7 @@ export const vocab = [
     Hiragana: '',
     English: 'mostly; nearly; most (of)',
     Sentence: '仕事はもうほとんど終わりました。',
-    Tags: ''
+    Tags: '',
   },
   {
     Id: 2,
@@ -13,7 +13,7 @@ export const vocab = [
     Hiragana: '',
     English: 'articles',
     Sentence: '',
-    Tags: ''
+    Tags: '',
   },
   {
     Id: 3,
@@ -21,7 +21,7 @@ export const vocab = [
     Hiragana: '',
     English: 'discount',
     Sentence: '',
-    Tags: ''
+    Tags: '',
   },
   {
     Id: 4,
@@ -29,7 +29,7 @@ export const vocab = [
     Hiragana: '',
     English: 'half price',
     Sentence: '',
-    Tags: ''
+    Tags: '',
   },
   {
     Id: 5,
@@ -37,7 +37,7 @@ export const vocab = [
     Hiragana: '',
     English: 'glad',
     Sentence: 'あなたに会えてうれしい',
-    Tags: ''
+    Tags: '',
   },
   {
     Id: 6,
@@ -45,7 +45,7 @@ export const vocab = [
     Hiragana: '',
     English: 'in particular',
     Sentence: '',
-    Tags: ''
+    Tags: '',
   },
   {
     Id: 7,
@@ -53,7 +53,7 @@ export const vocab = [
     Hiragana: '',
     English: 'freezing / to freeze',
     Sentence: 'ご飯 を れいとうしておく。',
-    Tags: ''
+    Tags: '',
   },
   {
     Id: 8,
@@ -61,7 +61,7 @@ export const vocab = [
     Hiragana: 'しょくひん',
     English: 'food',
     Sentence: '',
-    Tags: ''
+    Tags: '',
   },
   {
     Id: 9,
@@ -69,7 +69,7 @@ export const vocab = [
     Hiragana: '',
     English: 'to be sure to; always; without exception',
     Sentence: 'このしゅくだいは来週までにかならず出してください。',
-    Tags: ''
+    Tags: '',
   },
   {
     Id: 10,
@@ -77,7 +77,7 @@ export const vocab = [
     Hiragana: '',
     English: 'to be left',
     Sentence: 'りょうりがたくさんのこった。',
-    Tags: ''
+    Tags: '',
   },
   {
     Id: 11,
@@ -85,7 +85,7 @@ export const vocab = [
     Hiragana: 'たりる',
     English: 'to be enough',
     Sentence: '5000円あれば足りる。',
-    Tags: ''
+    Tags: '',
   },
   {
     Id: 12,
@@ -93,7 +93,7 @@ export const vocab = [
     Hiragana: '',
     English: 'preparations / to prepare',
     Sentence: '',
-    Tags: ''
+    Tags: '',
   },
   {
     Id: 13,
@@ -101,7 +101,7 @@ export const vocab = [
     Hiragana: 'しき',
     English: 'ceremoni',
     Sentence: '',
-    Tags: ''
+    Tags: '',
   },
   {
     Id: 14,
@@ -109,7 +109,7 @@ export const vocab = [
     Hiragana: '',
     English: 'suitable; just right',
     Sentence: '',
-    Tags: ''
+    Tags: '',
   },
   {
     Id: 15,
@@ -117,7 +117,7 @@ export const vocab = [
     Hiragana: '',
     English: 'to decide',
     Sentence: '',
-    Tags: ''
+    Tags: '',
   },
   {
     Id: 16,
@@ -125,7 +125,7 @@ export const vocab = [
     Hiragana: '',
     English: 'to look for',
     Sentence: '',
-    Tags: ''
+    Tags: '',
   },
   {
     Id: 17,
@@ -133,7 +133,7 @@ export const vocab = [
     Hiragana: '',
     English: 'underwear',
     Sentence: '',
-    Tags: ''
+    Tags: '',
   },
   {
     Id: 18,
@@ -141,7 +141,7 @@ export const vocab = [
     Hiragana: '',
     English: 'gloves',
     Sentence: '',
-    Tags: ''
+    Tags: '',
   },
   {
     Id: 19,
@@ -149,7 +149,7 @@ export const vocab = [
     Hiragana: '',
     English: 'nuisance',
     Sentence: '',
-    Tags: ''
+    Tags: '',
   },
   {
     Id: 20,
@@ -157,7 +157,7 @@ export const vocab = [
     Hiragana: '',
     English: 'to bother (someone)',
     Sentence: '',
-    Tags: ''
+    Tags: '',
   },
   {
     Id: 21,
@@ -165,7 +165,7 @@ export const vocab = [
     Hiragana: 'むすめ',
     English: 'daughter',
     Sentence: '',
-    Tags: ''
+    Tags: '',
   },
   {
     Id: 22,
@@ -173,7 +173,7 @@ export const vocab = [
     Hiragana: '',
     English: 'parking lot',
     Sentence: '',
-    Tags: ''
+    Tags: '',
   },
   {
     Id: 23,
@@ -181,7 +181,7 @@ export const vocab = [
     Hiragana: '',
     English: 'greeting / to greet',
     Sentence: '',
-    Tags: ''
+    Tags: '',
   },
   {
     Id: 24,
@@ -189,7 +189,7 @@ export const vocab = [
     Hiragana: '',
     English: 'to not mind',
     Sentence: 'ここにすわってかまいませんか。',
-    Tags: ''
+    Tags: '',
   },
   {
     Id: 25,
@@ -197,7 +197,7 @@ export const vocab = [
     Hiragana: '',
     English: 'a while',
     Sentence: '少しの間、お休みします。',
-    Tags: ''
+    Tags: '',
   },
   {
     Id: 26,
@@ -205,7 +205,7 @@ export const vocab = [
     Hiragana: 'ようじ',
     English: 'task; errand',
     Sentence: '用事が済む',
-    Tags: ''
+    Tags: '',
   },
   {
     Id: 27,
@@ -213,7 +213,7 @@ export const vocab = [
     Hiragana: 'すむ',
     English: 'to finish; to end',
     Sentence: '用事が済む',
-    Tags: ''
+    Tags: '',
   },
   {
     Id: 28,
@@ -221,7 +221,7 @@ export const vocab = [
     Hiragana: 'へんな',
     English: 'strange; eccentric',
     Sentence: '',
-    Tags: ''
+    Tags: '',
   },
   {
     Id: 29,
@@ -229,7 +229,7 @@ export const vocab = [
     Hiragana: '',
     English: 'to be angry',
     Sentence: '彼の言ったことが全部うそだと知って、おこった。',
-    Tags: ''
+    Tags: '',
   },
   {
     Id: 30,
@@ -237,7 +237,7 @@ export const vocab = [
     Hiragana: '',
     English: 'lies',
     Sentence: '彼の言ったことが全部うそだと知って、おこった。',
-    Tags: ''
+    Tags: '',
   },
   {
     Id: 31,
@@ -245,7 +245,7 @@ export const vocab = [
     Hiragana: '',
     English: 'to shout',
     Sentence: '大学生がお酒飲んでさわいでいる。',
-    Tags: ''
+    Tags: '',
   },
   {
     Id: 32,
@@ -253,7 +253,7 @@ export const vocab = [
     Hiragana: '',
     English: '(the reason) why',
     Sentence: 'どうしてうそをついたか、わけを聞こう。',
-    Tags: ''
+    Tags: '',
   },
   {
     Id: 33,
@@ -261,7 +261,7 @@ export const vocab = [
     Hiragana: 'つく',
     English: 'to tell (a lie)',
     Sentence: 'どうしてうそをついたか、わけを聞こう。',
-    Tags: ''
+    Tags: '',
   },
   {
     Id: 34,
@@ -269,7 +269,7 @@ export const vocab = [
     Hiragana: 'せわ',
     English: 'patronage; care',
     Sentence: '犬の世話をする。',
-    Tags: ''
+    Tags: '',
   },
   {
     Id: 35,
@@ -277,7 +277,7 @@ export const vocab = [
     Hiragana: '',
     English: 'just now',
     Sentence: '',
-    Tags: 'always forget'
+    Tags: 'always forget',
   },
   {
     Id: 36,
@@ -285,7 +285,7 @@ export const vocab = [
     Hiragana: '',
     English: 'special',
     Sentence: '',
-    Tags: ''
+    Tags: '',
   },
   {
     Id: 37,
@@ -293,7 +293,7 @@ export const vocab = [
     Hiragana: '',
     English: 'to hold; to have',
     Sentence: '今からじゅぎょうを行います。',
-    Tags: ''
+    Tags: '',
   },
   {
     Id: 38,
@@ -301,7 +301,7 @@ export const vocab = [
     Hiragana: 'しゅっせき',
     English: 'attendance; to attend',
     Sentence: '彼のかわりに、式に出席',
-    Tags: ''
+    Tags: '',
   },
   {
     Id: 39,
@@ -309,7 +309,7 @@ export const vocab = [
     Hiragana: '',
     English: 'to make up; substitute',
     Sentence: '彼のかわりに、式に出席',
-    Tags: ''
+    Tags: '',
   },
   {
     Id: 40,
@@ -317,7 +317,7 @@ export const vocab = [
     Hiragana: '',
     English: 'hesitation / to hesitate',
     Sentence: '',
-    Tags: ''
+    Tags: '',
   },
   {
     Id: 41,
@@ -325,7 +325,7 @@ export const vocab = [
     Hiragana: '',
     English: 'consultation / to talk about',
     Sentence: 'ちょと、先生にそうだんがあるんですか。',
-    Tags: ''
+    Tags: '',
   },
   {
     Id: 42,
@@ -333,7 +333,7 @@ export const vocab = [
     Hiragana: '',
     English: 'if possible',
     Sentence: 'なるべく出席してください。',
-    Tags: ''
+    Tags: '',
   },
   {
     Id: 43,
@@ -341,7 +341,7 @@ export const vocab = [
     Hiragana: '',
     English: 'the week after next',
     Sentence: '',
-    Tags: ''
+    Tags: '',
   },
   {
     Id: 44,
@@ -349,7 +349,7 @@ export const vocab = [
     Hiragana: '',
     English: 'to move',
     Sentence: 'となりの町にひっこす。',
-    Tags: ''
+    Tags: '',
   },
   {
     Id: 45,
@@ -357,7 +357,7 @@ export const vocab = [
     Hiragana: '',
     English: 'finally',
     Sentence: '三年間勉強して、やっと大学に入った。',
-    Tags: ''
+    Tags: '',
   },
   {
     Id: 46,
@@ -365,7 +365,7 @@ export const vocab = [
     Hiragana: '',
     English: 'to build',
     Sentence: '',
-    Tags: ''
+    Tags: '',
   },
   {
     Id: 47,
@@ -373,7 +373,7 @@ export const vocab = [
     Hiragana: '',
     English: 'to move',
     Sentence: 'となりのせきにうつる。',
-    Tags: ''
+    Tags: '',
   },
   {
     Id: 48,
@@ -381,7 +381,7 @@ export const vocab = [
     Hiragana: '',
     English: 'specialty',
     Sentence: '',
-    Tags: ''
+    Tags: '',
   },
   {
     Id: 49,
@@ -389,7 +389,7 @@ export const vocab = [
     Hiragana: '',
     English: 'preparations / to prepare',
     Sentence: '',
-    Tags: ''
+    Tags: '',
   },
   {
     Id: 50,
@@ -397,7 +397,7 @@ export const vocab = [
     Hiragana: 'かたづける',
     English: 'tidying up',
     Sentence: '',
-    Tags: ''
+    Tags: '',
   },
   {
     Id: 51,
@@ -405,7 +405,7 @@ export const vocab = [
     Hiragana: '',
     English: 'really',
     Sentence: '今日はすごく疲れた。',
-    Tags: 'always forget'
+    Tags: 'always forget',
   },
   {
     Id: 52,
@@ -413,7 +413,7 @@ export const vocab = [
     Hiragana: '',
     English: 'area',
     Sentence: '',
-    Tags: ''
+    Tags: '',
   },
   {
     Id: 53,
@@ -421,7 +421,7 @@ export const vocab = [
     Hiragana: '',
     English: 'to throw away',
     Sentence: '',
-    Tags: ''
+    Tags: '',
   },
   {
     Id: 54,
@@ -429,7 +429,7 @@ export const vocab = [
     Hiragana: '',
     English: 'to take (a resource, e.g. time/money)',
     Sentence: '',
-    Tags: ''
+    Tags: '',
   },
   {
     Id: 55,
@@ -437,7 +437,7 @@ export const vocab = [
     Hiragana: '',
     English: 'unnecessary things',
     Sentence: '',
-    Tags: ''
+    Tags: '',
   },
   {
     Id: 56,
@@ -445,7 +445,7 @@ export const vocab = [
     Hiragana: 'ずいぶん',
     English: 'a great deal',
     Sentence: '',
-    Tags: ''
+    Tags: '',
   },
   {
     Id: 57,
@@ -453,7 +453,7 @@ export const vocab = [
     Hiragana: 'かわる',
     English: 'to change',
     Sentence: '秋になると、はの色が赤に変わる。',
-    Tags: ''
+    Tags: '',
   },
   {
     Id: 58,
@@ -461,7 +461,7 @@ export const vocab = [
     Hiragana: 'どうろ',
     English: 'road',
     Sentence: '',
-    Tags: ''
+    Tags: '',
   },
   {
     Id: 59,
@@ -469,7 +469,7 @@ export const vocab = [
     Hiragana: 'とうる',
     English: 'to pass',
     Sentence: 'ろうかを通って部屋に行く。',
-    Tags: ''
+    Tags: '',
   },
   {
     Id: 60,
@@ -477,7 +477,7 @@ export const vocab = [
     Hiragana: '',
     English: 'production / to produce',
     Sentence: '',
-    Tags: ''
+    Tags: '',
   },
   {
     Id: 61,
@@ -485,7 +485,7 @@ export const vocab = [
     Hiragana: '',
     English: 'to carry',
     Sentence: '荷物を部屋にはこぶ。',
-    Tags: ''
+    Tags: '',
   },
   {
     Id: 62,
@@ -493,7 +493,7 @@ export const vocab = [
     Hiragana: '',
     English: 'trade',
     Sentence: '',
-    Tags: ''
+    Tags: '',
   },
   {
     Id: 63,
@@ -501,7 +501,7 @@ export const vocab = [
     Hiragana: 'けいかく',
     English: 'to plan',
     Sentence: '',
-    Tags: ''
+    Tags: '',
   },
   {
     Id: 64,
@@ -509,7 +509,7 @@ export const vocab = [
     Hiragana: '',
     English: 'to advance',
     Sentence: '車が前にすすむ。',
-    Tags: ''
+    Tags: '',
   },
   {
     Id: 65,
@@ -517,7 +517,7 @@ export const vocab = [
     Hiragana: 'へん',
     English: 'area; vicinity',
     Sentence: '',
-    Tags: ''
+    Tags: '',
   },
   {
     Id: 66,
@@ -525,7 +525,7 @@ export const vocab = [
     Hiragana: '',
     English: 'hallway',
     Sentence: '',
-    Tags: ''
+    Tags: '',
   },
   {
     Id: 67,
@@ -533,7 +533,7 @@ export const vocab = [
     Hiragana: '',
     English: 'traffic',
     Sentence: '',
-    Tags: ''
+    Tags: '',
   },
   {
     Id: 68,
@@ -541,7 +541,7 @@ export const vocab = [
     Hiragana: '',
     English: 'countryside',
     Sentence: '',
-    Tags: ''
+    Tags: '',
   },
   {
     Id: 69,
@@ -549,7 +549,7 @@ export const vocab = [
     Hiragana: '',
     English: 'to live; to get along',
     Sentence: '',
-    Tags: ''
+    Tags: '',
   },
   {
     Id: 70,
@@ -557,7 +557,7 @@ export const vocab = [
     Hiragana: 'くうこう',
     English: 'airport',
     Sentence: '',
-    Tags: ''
+    Tags: '',
   },
   {
     Id: 71,
@@ -565,7 +565,7 @@ export const vocab = [
     Hiragana: 'むかえる',
     English: 'to pick ~ up',
     Sentence: '子どもを迎えに行く。',
-    Tags: ''
+    Tags: '',
   },
   {
     Id: 72,
@@ -573,7 +573,7 @@ export const vocab = [
     Hiragana: '',
     English: 'on the way; during',
     Sentence: '仕事のとちゅうで休む。',
-    Tags: ''
+    Tags: '',
   },
   {
     Id: 73,
@@ -581,7 +581,7 @@ export const vocab = [
     Hiragana: '',
     English: 'to be crowded',
     Sentence: 'このレストランはいつもこんでいる。',
-    Tags: ''
+    Tags: '',
   },
   {
     Id: 74,
@@ -589,7 +589,7 @@ export const vocab = [
     Hiragana: '',
     English: 'to change lines; to transfer',
     Sentence: '地下鉄に乗りかえる。',
-    Tags: ''
+    Tags: '',
   },
   {
     Id: 75,
@@ -597,7 +597,7 @@ export const vocab = [
     Hiragana: '',
     English: 'to ask; to visit',
     Sentence: '駅の行き方をたずねる。',
-    Tags: ''
+    Tags: '',
   },
   {
     Id: 76,
@@ -605,7 +605,7 @@ export const vocab = [
     Hiragana: '',
     English: 'ordinal number suffix',
     Sentence: '日本へ来るのは、これで二回目だ。',
-    Tags: ''
+    Tags: '',
   },
   {
     Id: 77,
@@ -613,7 +613,7 @@ export const vocab = [
     Hiragana: 'かど',
     English: 'corner',
     Sentence: '',
-    Tags: ''
+    Tags: '',
   },
   {
     Id: 78,
@@ -621,7 +621,7 @@ export const vocab = [
     Hiragana: '',
     English: 'street',
     Sentence: '',
-    Tags: ''
+    Tags: '',
   },
   {
     Id: 79,
@@ -629,7 +629,7 @@ export const vocab = [
     Hiragana: '',
     English: 'a while',
     Sentence: 'しばらくお休みします。',
-    Tags: ''
+    Tags: '',
   },
   {
     Id: 80,
@@ -637,7 +637,7 @@ export const vocab = [
     Hiragana: '',
     English: 'crossing',
     Sentence: '',
-    Tags: ''
+    Tags: '',
   },
   {
     Id: 81,
@@ -645,7 +645,7 @@ export const vocab = [
     Hiragana: 'わたる',
     English: 'to cross',
     Sentence: '',
-    Tags: ''
+    Tags: '',
   },
   {
     Id: 82,
@@ -653,7 +653,7 @@ export const vocab = [
     Hiragana: '',
     English: 'opposite / to oppose',
     Sentence: '',
-    Tags: ''
+    Tags: '',
   },
   {
     Id: 83,
@@ -661,7 +661,7 @@ export const vocab = [
     Hiragana: '',
     English: 'to guide',
     Sentence: '',
-    Tags: ''
+    Tags: '',
   },
   {
     Id: 84,
@@ -669,7 +669,7 @@ export const vocab = [
     Hiragana: '',
     English: 'police box',
     Sentence: '',
-    Tags: ''
+    Tags: '',
   },
   {
     Id: 85,
@@ -677,6 +677,6 @@ export const vocab = [
     Hiragana: '',
     English: 'commuting (to work)',
     Sentence: '',
-    Tags: ''
-  }
+    Tags: '',
+  },
 ];
