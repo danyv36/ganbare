@@ -16,22 +16,28 @@
     </button>
   </div>
   <div class="navigation">
-    <button type="button" (click)="correct()" class="btn btn-success next">
-      <fa-icon [icon]="faCheck" size="lg"></fa-icon>
-    </button>
-    <button type="button" (click)="wrong()" class="btn btn-danger prev">
-      <fa-icon [icon]="faTimes" size="lg"></fa-icon>
-    </button>
-    <div class="options">
+    <div class="track-counter">
       <button
         type="button"
-        [ngClass]="shuffleBtnClass"
-        (click)="shuffle()"
-        class="btn btn-primary"
+        (click)="correct()"
+        class="btn btn-success next"
+        [disabled]="!quizStarted"
       >
-        shuffle
+        <fa-icon [icon]="faCheck" size="lg"></fa-icon>
       </button>
-      <button type="button" class="btn btn-primary">start studying</button>
+      <button
+        type="button"
+        (click)="wrong()"
+        class="btn btn-danger prev"
+        [disabled]="!quizStarted"
+      >
+        <fa-icon [icon]="faTimes" size="lg"></fa-icon>
+      </button>
+    </div>
+    <div class="options">
+      <button type="button" class="btn btn-primary" (click)="startQuiz()">
+        {{ quizLabel }}
+      </button>
     </div>
   </div>
   <div class="counter">
@@ -49,6 +55,14 @@
       name="input-end"
       [(ngModel)]="inputEnd"
     />
+    <button
+      type="button"
+      [ngClass]="shuffleBtnClass"
+      (click)="shuffle()"
+      class="btn btn-primary shuffle-btn"
+    >
+      <fa-icon [icon]="faRandom" size="lg"></fa-icon>
+    </button>
   </div>
   <div class="counter">{{ counter }}</div>
 </div>

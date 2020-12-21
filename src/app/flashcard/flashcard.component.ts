@@ -16,7 +16,7 @@ import { FlashcardState } from './flashcard.state';
   styleUrls: ['./flashcard.component.scss'],
 })
 export class FlashcardComponent implements OnInit {
-  constructor(private flashcardState: FlashcardState) {}
+  constructor(private state: FlashcardState) {}
 
   /* Icons */
   faChevronRight = faChevronRight;
@@ -29,82 +29,102 @@ export class FlashcardComponent implements OnInit {
   inputEnd: number; // inputs for what number to end the flashcards
 
   ngOnInit() {
-    this.flashcardState.currentFlashcardSet = vocab;
+    this.state.currentFlashcardSet = vocab;
     this.inputStart = 1;
-    this.inputEnd = this.flashcardState.currentFlashcardSet.length;
-    console.log('currentflashcardset::', this.flashcardState.currentFlashcardSet);
+    this.inputEnd = this.state.currentFlashcardSet.length;
+    console.log('currentflashcardset::', this.state.currentFlashcardSet);
   }
 
   get counter() {
-    return `${this.flashcardState.currentFlashcardIndex + 1}/${
-      this.flashcardState.currentFlashcardSet.length
+    return `${this.state.currentFlashcardIndex + 1}/${
+      this.state.currentFlashcardSet.length
     }`;
   }
 
   get currentFlashcard() {
-    return this.flashcardState.showingJapaneseSide
-      ? this.flashcardState.currentFlashcardSet[this.flashcardState.currentFlashcardIndex].Japanese
-      : this.flashcardState.currentFlashcardSet[this.flashcardState.currentFlashcardIndex].English;
+    return this.state.showingJapaneseSide
+      ? this.state.currentFlashcardSet[this.state.currentFlashcardIndex]
+          .Japanese
+      : this.state.currentFlashcardSet[this.state.currentFlashcardIndex]
+          .English;
   }
 
   get currentFlashcardHiragana() {
-    if (!this.flashcardState.showingJapaneseSide) {
+    if (!this.state.showingJapaneseSide) {
       return '';
     }
-    return this.flashcardState.currentFlashcardSet[this.flashcardState.currentFlashcardIndex].Hiragana;
+    return this.state.currentFlashcardSet[this.state.currentFlashcardIndex]
+      .Hiragana;
   }
 
   get shuffleBtnClass() {
-    return this.flashcardState.cardsShuffled ? 'btn-primary' : 'btn-off';
+    return this.state.cardsShuffled ? 'btn-primary' : 'btn-off';
+  }
+
+  get quizStarted() {
+    return this.state.quizStarted;
+  }
+
+  get quizLabel() {
+    return this.state.quizStarted ? 'stop quiz' : 'start quiz';
   }
 
   updateStartIndex() {
-    this.flashcardState.currentFlashcardIndex = this.inputStart - 1;
+    this.state.currentFlashcardIndex = this.inputStart - 1;
   }
 
   prev() {
-    if (this.flashcardState.currentFlashcardIndex !== 0) {
-      this.flashcardState.currentFlashcardIndex--;
+    if (this.state.currentFlashcardIndex !== 0) {
+      this.state.currentFlashcardIndex--;
     } else {
-      this.flashcardState.currentFlashcardIndex = this.flashcardState.currentFlashcardSet.length - 1;
+      this.state.currentFlashcardIndex =
+        this.state.currentFlashcardSet.length - 1;
     }
   }
 
   next() {
-    if (this.flashcardState.currentFlashcardIndex < this.inputEnd - 1) {
-      this.inputStart = ++this.flashcardState.currentFlashcardIndex + 1;
+    if (this.state.currentFlashcardIndex < this.inputEnd - 1) {
+      this.inputStart = ++this.state.currentFlashcardIndex + 1;
     } else {
-      this.flashcardState.currentFlashcardIndex = 0;
+      this.state.currentFlashcardIndex = 0;
       this.inputStart = 1;
     }
-    this.flashcardState.showingJapaneseSide = true;
+    this.state.showingJapaneseSide = true;
   }
 
   flip() {
-    this.flashcardState.showingJapaneseSide = !this.flashcardState.showingJapaneseSide;
+    this.state.showingJapaneseSide = !this.state.showingJapaneseSide;
   }
 
   shuffle() {
-    this.flashcardState.cardsShuffled = !this.flashcardState.cardsShuffled;
-    this.flashcardState.currentFlashcardSet = this.flashcardState.cardsShuffled ? _.shuffle(vocab) : vocab;
-    this.flashcardState.currentFlashcardIndex = 0;
+    this.state.cardsShuffled = !this.state.cardsShuffled;
+    this.state.currentFlashcardSet = this.state.cardsShuffled
+      ? _.shuffle(vocab)
+      : vocab;
+    this.state.currentFlashcardIndex = 0;
   }
 
   correct() {
-    this.flashcardState.correctFlashcards.push(
-      this.flashcardState.currentFlashcardSet[this.flashcardState.currentFlashcardIndex]
+    this.state.correctFlashcards.push(
+      this.state.currentFlashcardSet[this.state.currentFlashcardIndex].Id
     );
+    this.next();
   }
 
   wrong() {
-    this.flashcardState.wrongFlashcards.push(
-      this.flashcardState.currentFlashcardSet[this.flashcardState.currentFlashcardIndex]
+    this.state.wrongFlashcards.push(
+      this.state.currentFlashcardSet[this.state.currentFlashcardIndex].Id
     );
+    this.next();
+  }
+
+  startQuiz() {
+    this.state.quizStarted = true;
   }
 
   reset() {
-    this.flashcardState.correctFlashcards = [];
-    this.flashcardState.wrongFlashcards = [];
+    this.state.correctFlashcards = [];
+    this.state.wrongFlashcards = [];
   }
 
   @HostListener('document:keyup', ['$event'])
@@ -121,10 +141,14 @@ export class FlashcardComponent implements OnInit {
         this.flip();
         break;
       case 'r':
-        this.correct();
+        if (this.quizStarted) {
+          this.correct();
+        }
         break;
       case 'w':
-        this.wrong();
+        if (this.quizStarted) {
+          this.wrong();
+        }
         break;
       default:
     }
