@@ -10,6 +10,8 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { FlashcardState } from './flashcard.state';
 import { FlashcardService, ICounterReq } from './flashcard.service';
+import { IResultsTally } from './flashcard-vocab.model';
+import clone from 'lodash/clone';
 
 @Component({
   selector: 'app-flashcard',
@@ -20,7 +22,7 @@ export class FlashcardComponent implements OnInit {
   constructor(
     private state: FlashcardState,
     private service: FlashcardService
-  ) {}
+  ) { }
 
   /* Icons */
   faChevronRight = faChevronRight;
@@ -33,6 +35,10 @@ export class FlashcardComponent implements OnInit {
   inputEnd: number; // inputs for what number to end the flashcards
 
   ngOnInit() {
+    this.service.getVocab().subscribe((results: IResultsTally[]) => {
+      console.log('results from db::', results);
+      this.state.resultsTally = results;
+    });
     this.state.quizStarted = false;
     this.state.currentFlashcardSet = vocab;
     this.inputStart = 1;
@@ -43,15 +49,15 @@ export class FlashcardComponent implements OnInit {
   get counter() {
     return `${this.state.currentFlashcardIndex + 1}/${
       this.state.currentFlashcardSet.length
-    }`;
+      }`;
   }
 
   get currentFlashcard() {
     return this.state.showingJapaneseSide
       ? this.state.currentFlashcardSet[this.state.currentFlashcardIndex]
-          .Japanese
+        .Japanese
       : this.state.currentFlashcardSet[this.state.currentFlashcardIndex]
-          .English;
+        .English;
   }
 
   get currentFlashcardHiragana() {
@@ -105,7 +111,7 @@ export class FlashcardComponent implements OnInit {
       this.state.currentFlashcardIndex++;
     } else {
       if (this.state.quizStarted) {
-        this.state.quizStarted = false;
+        this.startQuiz(); // end the quiz
       }
       this.state.currentFlashcardIndex = 0;
     }
@@ -147,15 +153,15 @@ export class FlashcardComponent implements OnInit {
     this.next();
   }
 
-  startQuiz() {
+  async startQuiz() {
     if (this.state.quizStarted) {
       // quiz ended, record results
-      const req: ICounterReq = {
-        results: this.state.resultQuiz,
-      };
-      this.service.postVocab(req).subscribe((s) => {
-        console.log('response::', s);
-      });
+      console.log('wat.....nan??::', JSON.stringify(this.state.resultQuiz));
+      const quizResults = clone(this.state.resultQuiz);
+      await this.service.postVocab(this.state.resultsTally, quizResults);
+      console.log('result quiz after...::', JSON.stringify(this.state.resultQuiz));
+    } else {
+      this.reset();
     }
     this.state.quizStarted = !this.state.quizStarted;
   }

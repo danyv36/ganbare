@@ -3,6 +3,6 @@
 [x] Save the wrong answers in a file and keep track of the cards you get most wrong
 [x] Show right/wrong answers once you reach the end
 [ ] Review wrong answers only
+[ ] Review the words that you get mostly wrong
 [ ] Load kanji file
 [ ] Add the ability to remove from stack words that you already know
-[ ] Review the words that you get mostly wrong

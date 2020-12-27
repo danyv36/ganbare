@@ -1,24 +1,33 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { IFlashcardVocab } from './flashcard-vocab.model';
+import { IFlashcardVocab, IQuizResult, IResultsTally } from './flashcard-vocab.model';
+import { AngularFireDatabase } from 'angularfire2/database';
+import { map } from 'rxjs/operators';
+import { FlashcardFactory } from './flashcard.factory';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class FlashcardService {
-  constructor(private http: HttpClient) {}
+  constructor(private db: AngularFireDatabase) {}
 
-  postVocab(req: ICounterReq) {
-    return this.http.post<IPostVocabRes>('http://localhost:3000/vocab', req);
+  postVocab(currentResults: IResultsTally[], quizResults: IQuizResult[]): Promise<void> {
+    const updatedResults = FlashcardFactory.setVocabPayload(currentResults, quizResults);
+    console.log('will post this to the database::', updatedResults);
+    return this.db.object(`/results/vocab`).set(updatedResults);
   }
 
-  getVocab() {
-    return this.http.get<any>('http://localhost:3000/');
+  getVocab(): Observable<IResultsTally[]> {
+    return this.db.object('/results/vocab').snapshotChanges().pipe(
+      map((vocab) => {
+        return (vocab.payload.val() as any as IResultsTally[]);
+      })
+    );
   }
 }
 
 export interface ICounterReq {
-  results: IFlashcardVocab[];
+  results: IQuizResult[];
 }
 
 export interface IPostVocabRes {
